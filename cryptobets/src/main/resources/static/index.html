@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypt-Bets</title>
+    <link href="/webjars/bootstrap/4.4.1/css/bootstrap.css" rel="stylesheet">
+    <link href="/application.css" rel="stylesheet">
+    <script type="text/javascript" src="/webjars/sockjs-client/1.1.2/sockjs.js"></script>
+    <script type="text/javascript" src="/webjars/webstomp-client/1.2.6/dist/webstomp.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.js"></script>
+    <script type="text/javascript" src="/application.js"></script>
+</head>
+<body onload="connect();">
+<div id="main-content" class="container">
+    <h2>Crypto Bets</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Register you bet</h3>
+            <form>
+                <div class="row  mb-2 mr-sm-2">
+                    <div class="col">
+                        <input type="text" id="username" class="form-control" placeholder="username">
+                    </div>
+                    <div class="col">
+                        <input type="number" id="betPrice" class="form-control" placeholder="bet price">
+                    </div>
+                </div>
+                <div class="row  mb-2 mr-sm-2">
+                    <div class="col">
+                        <input type="text" id="email" class="form-control" placeholder="email">
+                    </div>
+                    <div class="col">
+                        <input type="text" id="phoneNumber" class="form-control" placeholder="phoneNumber">
+                    </div>
+                </div>
+                <div class="row  mb-2 mr-sm-2">
+                    <div class="col">
+                        <button id="send" class="btn btn-primary" type="submit" disabled="true">Send</button>
+                    </div>
+                    <div class="col">
+                        <div id="betsNumber">Quantity of bets: 0</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-sm  table-striped">
+                <thead>
+                <tr>
+                    <th>Events:</th>
+                </tr>
+                </thead>
+                <tbody id="responses">
+                <tr></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
