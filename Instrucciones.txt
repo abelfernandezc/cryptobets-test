@@ -1,0 +1,31 @@
+Instrucciones
+
+Prerequisitos
+1. Tener instalado Java 8
+2. Tener instalado Maven 3.5.0
+3. Tener instalado y ejecutandose la base de datos MySql 5.7 en el puerto 3306
+4. Crear la base de datos "cryptobets"
+5. Ejecutar los DDL que se encuentran en el archivo ./database/mysql/CreateTables.sql
+6. Tener instalado Apache Kafka (se probó con la versión 2.13-2.8.0)
+7. Levantar Zookeeper en el puerto por defecto 2181
+8. Levantar Kafka en el puerto por defecto 9092
+9. Crear los topicos "receptionTopic" y "winnerTopic"
+
+Ejecución
+1. Ingresar a la carpeta ./config y ejecutar el siguiente comando
+   .\mvnw spring-boot:run
+2. Ingresar a la carpeta ./discovery y ejecutar el siguiente comando
+   .\mvnw spring-boot:run
+3. Ingresar a la carpeta ./gateway y ejecutar el siguiente comando
+   .\mvnw spring-boot:run
+4. Ingresar a la carpeta ./cryptobets y ejecutar el siguiente comando
+   .\mvnw spring-boot:run
+5. Abrir tu web browser en la siguiente ruta:
+   - http://localhost:7000/
+
+Consideraciones:
+1. El password del usuario root de mysql debe ser "cryptobets", sin embargo es posible modificar en el siguiente archivo de configuración 
+      - config/src/main/resources/config/cryptobets-service/application.properties
+   la propiedad que se debe modificar es:
+      - spring.datasource.password
+2. Se trabajo en los archivos de configuracion para contenedores Docker para todos los servicios requeridos, sin embargo no fueron probados.
